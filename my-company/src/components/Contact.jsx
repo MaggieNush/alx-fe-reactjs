@@ -53,6 +53,14 @@ function Contact() {
                     onChange={handleChange}
                     style={inputStyle}
                 />
+                <input 
+                    type="text"
+                    name="email"
+                    placeholder="Your email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    style={inputStyle}
+                />
                 <textarea 
                     name="message" 
                     placeholder="Your message"
