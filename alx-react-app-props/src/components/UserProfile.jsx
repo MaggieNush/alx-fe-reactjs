@@ -1,11 +1,16 @@
-const UserProfile = (props) => {
-    return (
-        <div style={{border:'2px solid gray', padding:'10px', margin:'10px'}}>
-            <h2 style={{color:'skyblue', fontStyle:'italic', fontSize:'40px'}}>{props.name}</h2>
-            <p>Age: <span style={{fontWeight:'bold'}}> {props.age}</span></p>
-            <p>Bio: <span style={{fontStyle:'italic', fontWeight:'bold'}}> {props.bio}</span></p>
-        </div>
-    );
-};
+import { useContext } from 'react';
+import UserContext from '../UserContext';
+import UserInfo from './UserInfo';
+
+function UserProfile() {
+  const userData = useContext(UserContext); // Context consumed here
+  
+  return (
+    <div>
+      <h2>User Profile</h2>
+      <UserInfo userData={userData} /> {/* Still pass as prop for demonstration */}
+    </div>
+  );
+}
 
 export default UserProfile;
