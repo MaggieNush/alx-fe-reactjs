@@ -9,6 +9,8 @@ const RecipeList = () => {
             <div key={recipe.id}>
                 <h3>{recipe.title}</h3>
                 <p>{recipe.description}</p>
+                <p>{recipe.ingredients}</p>
+                <p>{recipe.instructions}</p>
             </div>
         ))}
         </div>
