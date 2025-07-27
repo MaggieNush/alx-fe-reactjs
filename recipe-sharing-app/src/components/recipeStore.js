@@ -13,14 +13,14 @@ const useRecipeStore = create (set => ({
             ),
     })),
 
-    deleterRecipe: (id) =>
+    deleteRecipe: (id) =>
         set((state) => ({
             recipes:state.recipes.filter(recipe => recipe.id !== id),
         })),
 
     setRecipes: (recipes) => set({ recipes 
     })
-    
+
 }));
 
 export default useRecipeStore;
