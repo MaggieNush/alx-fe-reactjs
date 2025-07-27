@@ -14,20 +14,54 @@ const useRecipeStore = create (set => ({
 
     recommendations:[],
 
-    generateRecommendations: () => set(state => {
-        const recommended = state.recipes.filter(recipe =>
-            state.favorites.includes(recipe.id) && Math.random() > 0.5
-        );
+generateRecommendations: () => set((state) => {
+  if (state.favorites.length === 0) {
+    const shuffled = [...state.recipes].sort(() => 0.5 - Math.random());
+    return { recommendations: shuffled.slice(0, 3) };
+  }
 
-        return { recommendations: recommended };
-    }),
-    
-    searchTerm: '',
-    filters: {
-        maxCookingTime: null,
-        requiredIngredients: [],
-        difficulty: null,
-    },
+  const favoriteIngredients = Array.from(
+    new Set(
+      state.favorites.flatMap(favId => {
+        const recipe = state.recipes.find(r => r.id === favId);
+        return recipe ? recipe.ingredients : [];
+      })
+    )
+  );
+
+  const scoredRecipes = state.recipes
+    .filter(recipe => !state.favorites.includes(recipe.id)) // Exclude already favorited
+    .map(recipe => {
+      let score = 0;
+      
+      const ingredientMatches = recipe.ingredients.filter(ingredient =>
+        favoriteIngredients.includes(ingredient)
+      ).length;
+      score += ingredientMatches * 2;
+      
+      const avgFavoriteTime = state.favorites.reduce((sum, favId) => {
+        const favRecipe = state.recipes.find(r => r.id === favId);
+        return sum + (favRecipe?.cookingTime || 0);
+      }, 0) / state.favorites.length;
+      
+      score += 5 - Math.abs(recipe.cookingTime - avgFavoriteTime) / 10;
+      
+      // Score for matching difficulty
+      const favoriteDifficulties = state.favorites.map(favId => {
+        const favRecipe = state.recipes.find(r => r.id === favId);
+        return favRecipe?.difficulty;
+      });
+      
+      if (favoriteDifficulties.includes(recipe.difficulty)) {
+        score += 3;
+      }
+      
+      return { ...recipe, score };
+    })
+    .sort((a, b) => b.score - a.score);
+
+  return { recommendations: scoredRecipes.slice(0, 6) };
+}),
 
     setSearchTerm: (term) => set({searchTerm: term}),
 
