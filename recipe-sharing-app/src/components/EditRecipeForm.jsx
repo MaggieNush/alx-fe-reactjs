@@ -17,15 +17,15 @@ const EditRecipeForm = () => {
         instructions: recipe.instructions,
     });
 
-    const handleChange = (e) => {
+    const handleChange = (event) => {
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value,
+            [event.target.name]: e.target.value,
         });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault()
 
         const updatedRecipe = {
             ...formData,
