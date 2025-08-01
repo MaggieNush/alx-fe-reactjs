@@ -1,12 +1,68 @@
-# React + Vite
+GitHub User Search – React + Tailwind CSS
+This is a simple React application that allows users to search for GitHub usernames. It's styled using Tailwind CSS and built using Vite for fast development.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+Input field to search for GitHub usernames
 
-Currently, two official plugins are available:
+Input validation with error messages
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Tailwind CSS for styling
 
-## Expanding the ESLint configuration
+React functional components
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Clears input after submission
+
+Project Structure
+lua
+Copy
+Edit
+src/
+├── components/
+│   └── SearchBar.jsx
+├── App.jsx
+├── main.jsx
+index.html
+tailwind.config.js
+postcss.config.js
+package.json
+README.md
+Getting Started
+Clone the repository
+
+bash
+Copy
+Edit
+git clone https://github.com/your-username/github-user-search.git
+cd github-user-search
+Install dependencies
+
+bash
+Copy
+Edit
+npm install
+Start the development server
+
+bash
+Copy
+Edit
+npm run dev
+Open your browser and go to http://localhost:5173
+
+Tailwind Setup Notes
+Make sure your tailwind.config.js file includes:
+
+js
+Copy
+Edit
+content: [
+  "./index.html",
+  "./src/**/*.{js,ts,jsx,tsx}",
+],
+And that your main CSS file has:
+
+css
+Copy
+Edit
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
