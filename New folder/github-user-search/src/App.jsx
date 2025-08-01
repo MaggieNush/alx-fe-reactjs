@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import Search from "./components/Search";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -16,7 +16,7 @@ function App() {
       const response = await axios.get(`https://api.github.com/users/${username}`);
       setUser(response.data);
     } catch (error) {
-      setError("Looks like we cant find the user")
+      setError("Sorry, user not found")
     } finally {
       setLoading(false)
     }
@@ -24,7 +24,7 @@ function App() {
   return (
     <div className='flex justify-center'>
       <h1>Search Github User</h1>
-      <Search onSearch={handleSearch} />
+      <SearchBar onSearch={handleSearch} />
 
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
