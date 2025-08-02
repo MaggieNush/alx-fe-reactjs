@@ -23,7 +23,7 @@ function Search() {
     setError('');
 
     try {
-      const data = await axios.fetchUserData(formData);
+      const data = await fetchUserData(formData);
       setUsers(data);
     } catch (err) {
       setError(err.message);

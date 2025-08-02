@@ -1,3 +1,5 @@
+import axios from "axios";
+
 // githubService.js
 export async function fetchUserData({ username, location, minRepos }) {
   try {
@@ -8,7 +10,7 @@ export async function fetchUserData({ username, location, minRepos }) {
     if (minRepos) queryParts.push(`repos:>=${minRepos}`);
 
     const query = queryParts.join(' ');
-    const response = await fetch(`https://api.github.com/search/users?q=${encodeURIComponent(query)}`);
+    const response = await axios.get(`https://api.github.com/search/users?q=${encodeURIComponent(query)}`);
     const data = await response.json();
 
     return data.items || [];
