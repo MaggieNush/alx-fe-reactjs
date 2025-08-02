@@ -13,7 +13,7 @@ function Search() {
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target.value;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
