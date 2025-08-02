@@ -13,7 +13,7 @@ function Search() {
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target.value;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -23,7 +23,7 @@ function Search() {
     setError('');
 
     try {
-      const data = await fetchUserData(formData);
+      const data = await axios.fetchUserData(formData);
       setUsers(data);
     } catch (err) {
       setError(err.message);
