@@ -13,7 +13,7 @@ function Search() {
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
-    const { name, value } = e.target.value;
+    const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -78,7 +78,7 @@ function Search() {
         </button>
 
         {loading && <p className="mt-4">Loading...</p>}
-        {error && <p className="text-red-500 mt-4">{error}</p>}
+        {error && <p className="text-red-500 mt-4">Looks like we cant find the user</p>}
 
         {users.length > 0 && (
           <div className="mt-6 space-y-4">
