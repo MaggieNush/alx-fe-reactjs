@@ -8,38 +8,59 @@ const AddRecipeForm = () => {
     const [steps, setSteps] = useState('');
     const [image, setImage] = useState('');
 
-    // State for validation and feedback messages
-    const [error, setError] = useState('');
+    // State for validation errors (an object)
+    const [errors, setErrors] = useState({});
+
+    // State for a success message
     const [successMessage, setSuccessMessage] = useState('');
+
+    // --- New: The validate function ---
+    // This function checks the form data and returns an object of errors
+    const validate = () => {
+        const newErrors = {};
+
+        if (!title.trim()) {
+            newErrors.title = 'Recipe title is required.';
+        }
+
+        const ingredientList = ingredients.split('\n').filter(item => item.trim() !== '');
+        if (ingredientList.length < 2) {
+            newErrors.ingredients = 'Please list at least two ingredients, each on a new line.';
+        }
+
+        const stepList = steps.split('\n').filter(item => item.trim() !== '');
+        if (stepList.length < 1) {
+            newErrors.steps = 'Preparation steps are required.';
+        }
+
+        // Validates the image URL 
+        if (image && !image.startsWith('http')) {
+             newErrors.image = 'Please enter a valid URL.';
+        }
+
+        return newErrors;
+    };
 
     // Function to handle form submission
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevents the default form submission behavior
+        e.preventDefault();
 
-        // Reset previous messages
-        setError('');
-        setSuccessMessage('');
+        // Validate all fields
+        const validationErrors = validate();
+        setErrors(validationErrors);
 
-        // --- Step 2: Implement Validation ---
-        // Basic check for empty fields
-        if (!title.trim() || !ingredients.trim() || !steps.trim()) {
-            setError('Please fill out all required fields.');
+        // Check if there are any errors. If the object is empty, the form is valid.
+        if (Object.keys(validationErrors).length > 0) {
+            setSuccessMessage(''); // Clear any previous success message
             return;
         }
 
-        // Check for at least two ingredients
-        const ingredientList = ingredients.split('\n').filter(item => item.trim() !== '');
-        if (ingredientList.length < 2) {
-            setError('Please list at least two ingredients, each on a new line.');
-            return;
-        }
-
-        // --- Step 3: Simulate Form Submission ---
+        // --- Simulate Form Submission (Valid Data) ---
         const newRecipe = {
             title,
-            ingredients: ingredientList, // Store ingredients as an array
+            ingredients: ingredients.split('\n').filter(item => item.trim() !== ''),
             steps: steps.split('\n').filter(item => item.trim() !== ''),
-            image, 
+            image,
         };
 
         console.log('New Recipe Data:', newRecipe);
@@ -64,11 +85,9 @@ const AddRecipeForm = () => {
                 onSubmit={handleSubmit} 
                 className="bg-white rounded-lg shadow-lg p-6 md:p-8"
             >
-                {/* --- Form Feedback Messages --- */}
-                {error && <p className="text-red-500 mb-4">{error}</p>}
                 {successMessage && <p className="text-green-500 mb-4">{successMessage}</p>}
 
-                {/* --- Form Fields --- */}
+                {/* --- Form Fields with Specific Error Messages --- */}
                 <div className="mb-4">
                     <label htmlFor="title" className="block text-gray-700 font-semibold mb-2">
                         Recipe Title
@@ -78,8 +97,10 @@ const AddRecipeForm = () => {
                         id="title"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
+                        className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
                     />
+                    {/* Display error message for this specific field */}
+                    {errors.title && <p className="text-red-500 text-sm mt-1">{errors.title}</p>}
                 </div>
 
                 <div className="mb-4">
@@ -91,34 +112,37 @@ const AddRecipeForm = () => {
                         id="image"
                         value={image}
                         onChange={(e) => setImage(e.target.value)}
-                        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
+                        className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
                     />
+                    {errors.image && <p className="text-red-500 text-sm mt-1">{errors.image}</p>}
                 </div>
 
                 <div className="mb-4">
                     <label htmlFor="ingredients" className="block text-gray-700 font-semibold mb-2">
-                        Ingredients
+                        Ingredients (one per line)
                     </label>
                     <textarea
                         id="ingredients"
                         value={ingredients}
                         onChange={(e) => setIngredients(e.target.value)}
                         rows="5"
-                        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow resize-y"
+                        className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow resize-y"
                     ></textarea>
+                    {errors.ingredients && <p className="text-red-500 text-sm mt-1">{errors.ingredients}</p>}
                 </div>
 
                 <div className="mb-6">
                     <label htmlFor="steps" className="block text-gray-700 font-semibold mb-2">
-                        Preparation Steps
+                        Preparation Steps (one per line)
                     </label>
                     <textarea
                         id="steps"
                         value={steps}
                         onChange={(e) => setSteps(e.target.value)}
                         rows="8"
-                        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow resize-y"
+                        className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow resize-y"
                     ></textarea>
+                    {errors.steps && <p className="text-red-500 text-sm mt-1">{errors.steps}</p>}
                 </div>
 
                 <button
