@@ -3,48 +3,157 @@
     "id": 1,
     "title": "Sukuma Wiki with Ugali",
     "summary": "A popular Kenyan staple, Sukuma Wiki is a collard green dish often cooked with onions and tomatoes, traditionally served with Ugali (a stiff maize flour porridge).",
-    "image": "https://images.unsplash.com/photo-1628100234771-41712217c2f1?q=80&w=1964&auto=format&fit=crop"
+    "image": "https://images.unsplash.com/photo-1628100234771-41712217c2f1?q=80&w=1964&auto=format&fit=crop",
+    "ingredients": [
+      "1 bunch collard greens (sukuma wiki), chopped",
+      "1 large onion, chopped",
+      "2 tomatoes, diced",
+      "2 tbsp cooking oil",
+      "Salt to taste",
+      "1 cup maize flour",
+      "2 cups water"
+    ],
+    "instructions": [
+      "For the Ugali: Bring water to a boil, then gradually add maize flour while stirring continuously until a stiff dough forms. Let it cook for a few minutes, then remove from heat.",
+      "For the Sukuma Wiki: In a pan, heat oil and sauté onions until translucent. Add tomatoes and cook until soft. Add the chopped collard greens and salt. Stir well and cover to steam for 5-7 minutes until tender. Serve hot with Ugali."
+    ]
   },
   {
     "id": 2,
     "title": "Jollof Rice",
     "summary": "A beloved West African one-pot rice dish cooked in a flavorful tomato and red pepper sauce, often with chicken or fish.",
-    "image": "https://images.unsplash.com/photo-1577742055106-4df023d6a917?q=80&w=1974&auto=format&fit=crop"
+    "image": "https://images.unsplash.com/photo-1577742055106-4df023d6a917?q=80&w=1974&auto=format&fit=crop",
+    "ingredients": [
+      "2 cups long-grain rice",
+      "1 red bell pepper",
+      "1 habanero or scotch bonnet pepper (optional)",
+      "1 large onion",
+      "3 tomatoes",
+      "1/2 cup tomato paste",
+      "1/4 cup cooking oil",
+      "Chicken or vegetable broth",
+      "Spices: thyme, curry powder, salt"
+    ],
+    "instructions": [
+      "Blend the bell pepper, habanero, tomatoes, and half the onion to form a smooth sauce.",
+      "In a large pot, heat oil and fry the remaining chopped onion until fragrant. Add the tomato paste and fry for a few minutes.",
+      "Pour in the blended sauce and broth. Add spices and bring to a boil. Add the rice, stir, and reduce heat to low. Cover tightly and let it simmer until the rice is cooked and the liquid is absorbed."
+    ]
   },
   {
     "id": 3,
     "title": "Injera with Misir Wot",
     "summary": "Injera is a spongy, sourdough flatbread from Ethiopia and Eritrea, typically served with various stews like Misir Wot (spicy red lentil stew).",
-    "image": "https://images.unsplash.com/photo-1596707328688-29219e913a40?q=80&w=1964&auto=format&fit=crop"
+    "image": "https://images.unsplash.com/photo-1596707328688-29219e913a40?q=80&w=1964&auto=format&fit=crop",
+    "ingredients": [
+      "1 cup red lentils (misir)",
+      "2 tbsp Berbere spice mix",
+      "1/2 cup finely chopped onion",
+      "3 cloves garlic, minced",
+      "2 tbsp niter kibbeh (clarified spiced butter) or oil",
+      "4 cups Injera flatbread"
+    ],
+    "instructions": [
+      "Wash the lentils and set aside. In a pot, heat the niter kibbeh (or oil) and sauté the onions until soft.",
+      "Add the Berbere spice and stir-fry for a minute. Add the minced garlic and stir.",
+      "Add the washed lentils and enough water to cover. Bring to a boil, then reduce heat and simmer until the lentils are tender. Serve hot with Injera."
+    ]
   },
   {
     "id": 4,
     "title": "Nyama Choma",
     "summary": "A quintessential Kenyan grilled meat dish, usually goat or beef, seasoned simply and cooked over an open fire until tender and smoky. Often served with kachumbari.",
-    "image": "https://images.unsplash.com/photo-1517781037380-6927d2c3848b?q=80&w=1935&auto=format&fit=crop"
+    "image": "https://images.unsplash.com/photo-1517781037380-6927d2c3848b?q=80&w=1935&auto=format&fit=crop",
+    "ingredients": [
+      "1 kg goat or beef ribs, cut into pieces",
+      "Salt to taste",
+      "Black pepper",
+      "Serving: Kachumbari (tomato and onion salsa)"
+    ],
+    "instructions": [
+      "Season the meat pieces generously with salt and pepper. Marinating is not traditional, as the flavor comes from the grill.",
+      "Grill the meat over hot charcoal or an open fire until the outside is browned and smoky, and the inside is cooked to your preference.",
+      "To serve, chop into smaller pieces and serve immediately with kachumbari."
+    ]
   },
   {
     "id": 5,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper. Simple yet incredibly delicious.",
-    "image": "https://images.unsplash.com/photo-1621996346761-032924373516?q=80&w=1974&auto=format&fit=crop"
+    "image": "https://images.unsplash.com/photo-1621996346761-032924373516?q=80&w=1974&auto=format&fit=crop",
+    "ingredients": [
+      "200g spaghetti",
+      "100g guanciale (or pancetta/bacon)",
+      "2 large eggs",
+      "50g Pecorino Romano cheese, grated",
+      "Black pepper"
+    ],
+    "instructions": [
+      "Cook the spaghetti according to package instructions.",
+      "While pasta cooks, chop guanciale into small cubes and cook in a pan until crispy. Remove from heat.",
+      "In a bowl, whisk eggs, grated cheese, and a generous amount of black pepper.",
+      "Drain the pasta, saving some pasta water. Immediately toss the hot pasta with the egg mixture and guanciale. The heat from the pasta will cook the eggs into a creamy sauce. Add a splash of pasta water to get the desired consistency. Serve immediately."
+    ]
   },
   {
     "id": 6,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato-based gravy. A staple of Indian cuisine.",
-    "image": "https://images.unsplash.com/photo-1549410145-200778c187e1?q=80&w=1974&auto=format&fit=crop"
+    "image": "https://images.unsplash.com/photo-1549410145-200778c187e1?q=80&w=1974&auto=format&fit=crop",
+    "ingredients": [
+      "500g chicken breast, cubed",
+      "1 cup yogurt",
+      "1 tbsp ginger-garlic paste",
+      "1 tsp turmeric, 1 tsp cumin, 1 tsp coriander powder",
+      "1 cup tomato puree",
+      "1/2 cup heavy cream",
+      "Butter"
+    ],
+    "instructions": [
+      "Marinate the chicken cubes in yogurt, ginger-garlic paste, and spices for at least 30 minutes.",
+      "Grill or pan-fry the chicken until cooked through and slightly charred.",
+      "In a separate pan, sauté chopped onions until soft. Add tomato puree and cook down. Stir in the grilled chicken.",
+      "Pour in the cream and butter, stirring until the sauce is creamy. Simmer for a few minutes. Serve hot with naan or rice."
+    ]
   },
   {
     "id": 7,
     "title": "Vegetable Stir-Fry",
     "summary": "A quick and healthy stir-fry packed with a variety of fresh vegetables and a savory sauce. Perfect for a weeknight meal.",
-    "image": "https://images.unsplash.com/photo-1512621776951-a87f6cdb1845?q=80&w=2070&auto=format&fit=crop"
+    "image": "https://images.unsplash.com/photo-1512621776951-a87f6cdb1845?q=80&w=2070&auto=format&fit=crop",
+    "ingredients": [
+      "2 cups mixed vegetables (broccoli, bell peppers, carrots)",
+      "2 tbsp soy sauce",
+      "1 tbsp sesame oil",
+      "1 tbsp cornstarch",
+      "1 clove garlic, minced",
+      "1 tsp fresh ginger, grated"
+    ],
+    "instructions": [
+      "Prepare all vegetables and mix the sauce ingredients (soy sauce, sesame oil, cornstarch, water).",
+      "Heat a wok or large pan over high heat with a little oil. Add garlic and ginger, stir-frying for a few seconds.",
+      "Add the vegetables and stir-fry for 3-5 minutes until tender-crisp. Pour in the sauce mixture and stir constantly until the sauce thickens and coats the vegetables. Serve immediately."
+    ]
   },
   {
     "id": 8,
     "title": "Classic Pancakes",
     "summary": "Fluffy and light pancakes that are perfect for breakfast. Serve with your favorite toppings like syrup, fruit, or whipped cream.",
-    "image": "https://images.unsplash.com/photo-1550905546-2c943809623c?q=80&w=1935&auto=format&fit=crop"
+    "image": "https://images.unsplash.com/photo-1550905546-2c943809623c?q=80&w=1935&auto=format&fit=crop",
+    "ingredients": [
+      "1 1/2 cups all-purpose flour",
+      "3 1/2 tsp baking powder",
+      "1 tsp salt",
+      "1 tbsp sugar",
+      "1 1/4 cups milk",
+      "1 egg",
+      "3 tbsp melted butter"
+    ],
+    "instructions": [
+      "In a large bowl, whisk together the dry ingredients: flour, baking powder, salt, and sugar.",
+      "In a separate bowl, whisk the wet ingredients: milk, egg, and melted butter.",
+      "Pour the wet mixture into the dry ingredients and stir just until combined. Do not overmix; a few lumps are fine.",
+      "Heat a lightly oiled griddle or frying pan over medium-high heat. Pour about 1/4 cup of batter for each pancake. Cook until bubbles appear on the surface and the edges look set. Flip and cook until golden brown on the other side. Serve warm with your favorite toppings."
+    ]
   }
 ]
