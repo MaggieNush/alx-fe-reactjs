@@ -10,11 +10,18 @@ const fetchPosts = async () => {
 };
 
 const PostsComponent = () => {
-  // Use React Query's useQuery hook
-  const { data, isLoading, error, refetch, isFetching } = useQuery({
-    queryKey: ['posts'], // Unique key for caching
-    queryFn: fetchPosts,  // Function to fetch data
-    staleTime: 1000 * 60 * 5, // Data stays fresh for 5 minutes
+  // Use React Query's useQuery hook with proper error handling
+  const { 
+    data, 
+    isLoading, 
+    isError, 
+    error, 
+    refetch, 
+    isFetching 
+  } = useQuery({
+    queryKey: ['posts'], 
+    queryFn: fetchPosts,  // Fetches data
+    staleTime: 1000 * 60 * 5, 
   });
 
   // Loading state
@@ -22,16 +29,15 @@ const PostsComponent = () => {
     return <div>Loading posts...</div>;
   }
 
-  // Error state
-  if (error) {
+  if (isError) {
     return <div>Error: {error.message}</div>;
   }
 
   return (
     <div>
       <h2>Posts</h2>
-      
-      {/* Refresh button to demonstrate manual refetching */}
+
+      {/* Refresh button */}
       <button onClick={() => refetch()} disabled={isFetching}>
         {isFetching ? 'Refreshing...' : 'Refresh Posts'}
       </button>
@@ -41,7 +47,7 @@ const PostsComponent = () => {
 
       {/* Display posts */}
       <div>
-        {data?.slice(0, 10).map(post => ( // Show first 10 posts
+        {data?.slice(0, 10).map(post => (
           <div key={post.id} style={{ border: '1px solid #ccc', margin: '10px', padding: '10px' }}>
             <h3>{post.title}</h3>
             <p>{post.body}</p>
