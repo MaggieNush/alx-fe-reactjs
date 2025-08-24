@@ -10,7 +10,7 @@ const fetchPosts = async () => {
 };
 
 const PostsComponent = () => {
-  // Use React Query's useQuery hook with proper error handling
+  // Enhanced useQuery with additional configuration options
   const { 
     data, 
     isLoading, 
@@ -19,9 +19,14 @@ const PostsComponent = () => {
     refetch, 
     isFetching 
   } = useQuery({
-    queryKey: ['posts'], 
-    queryFn: fetchPosts,  // Fetches data
-    staleTime: 1000 * 60 * 5, 
+    queryKey: ['posts'], // Unique key for caching
+    queryFn: fetchPosts,
+    
+    // Configuration options
+    staleTime: 1000 * 60 * 5,    // Data stays fresh for 5 minutes
+    cacheTime: 1000 * 60 * 10,   // The length inactive data stays in cache
+    refetchOnWindowFocus: true,  // Refetch when window gains focus
+    keepPreviousData: true,      // Keep previous data while fetching new data
   });
 
   // Loading state
@@ -29,6 +34,7 @@ const PostsComponent = () => {
     return <div>Loading posts...</div>;
   }
 
+  // Error state
   if (isError) {
     return <div>Error: {error.message}</div>;
   }
@@ -36,7 +42,7 @@ const PostsComponent = () => {
   return (
     <div>
       <h2>Posts</h2>
-
+      
       {/* Refresh button */}
       <button onClick={() => refetch()} disabled={isFetching}>
         {isFetching ? 'Refreshing...' : 'Refresh Posts'}
