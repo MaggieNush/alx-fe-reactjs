@@ -1,8 +1,8 @@
 import { Navigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const ProtectedRoute = ({ children }) => {
-  // Simulate authentication - in real app, check from context/store
-  const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+  const { isAuthenticated } = useAuth(); // Use the auth context
   
   return isAuthenticated ? children : <Navigate to="/" replace />;
 };
