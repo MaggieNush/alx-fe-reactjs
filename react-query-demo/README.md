@@ -1,0 +1,1 @@
+This task involves integrating React Query into a React project to fetch, cache, and update data from a public API. You’ll build a component that handles these data operations smoothly, demonstrating the capabilities of React Query in optimizing data interactions in React applications.
