@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 const TodoList = () => {
   const [todos, setTodos] = useState([
-    { id: 1, text: 'Learn React and Redux', completed: false },
-    { id: 2, text: 'Build a Todo App with React', completed: false },
+    { id: 1, text: 'Develop a Sales Strategy App', completed: false },
+    { id: 2, text: 'Study React Testing Library', completed: false },
     { id: 3, text: 'Write comprehensive tests for React components', completed: false },
   ]);
 
