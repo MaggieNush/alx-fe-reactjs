@@ -8,7 +8,7 @@ const RegistrationForm = () => {
     password: ''
   });
 
-  // State for errors
+  // State for errors field
   const [errors, setErrors] = useState({});
 
   // Handle input changes
@@ -20,7 +20,7 @@ const RegistrationForm = () => {
     }));
   };
 
-  // Basic validation
+  // Form validation
   const validateForm = () => {
     const newErrors = {};
     
@@ -38,14 +38,13 @@ const RegistrationForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Handle form submission
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     
     if (validateForm()) {
-      // Mock API call
+      
       console.log('Submitting:', formData);
-      // Here you would make actual API call
     }
   };
 
@@ -56,7 +55,7 @@ const RegistrationForm = () => {
         <input
           type="text"
           name="username"
-          value={formData.username}
+          value={username}
           onChange={handleChange}
         />
         {errors.username && <span>{errors.username}</span>}
@@ -67,7 +66,7 @@ const RegistrationForm = () => {
         <input
           type="email"
           name="email"
-          value={formData.email}
+          value={email}
           onChange={handleChange}
         />
         {errors.email && <span>{errors.email}</span>}
@@ -78,7 +77,7 @@ const RegistrationForm = () => {
         <input
           type="password"
           name="password"
-          value={formData.password}
+          value={password}
           onChange={handleChange}
         />
         {errors.password && <span>{errors.password}</span>}
