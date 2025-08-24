@@ -1,16 +1,16 @@
 import { useParams, Link } from 'react-router-dom';
 
 const BlogPost = () => {
-  const { postId } = useParams(); // Get dynamic parameter
+  const { id } = useParams(); // Changed from postId to id
   
   // Simulate blog posts data
   const posts = {
-    'post-1': { title: 'First Post', content: 'This is the first blog post.' },
-    'post-2': { title: 'Second Post', content: 'This is the second blog post.' },
-    'post-3': { title: 'Third Post', content: 'This is the third blog post.' }
+    '1': { title: 'My Life as a Developer', content: 'This is a brief overview of my life as a developer.' },
+    '2': { title: 'A Day in the Life of a Software Engineer', content: 'This is a brief overview of a day in the life of a software engineer.' },
+    '3': { title: 'Understanding React Router', content: 'This is a brief overview of understanding React Router.' }
   };
 
-  const post = posts[postId];
+  const post = posts[id];
 
   if (!post) {
     return <div>Blog post not found!</div>;
@@ -24,10 +24,10 @@ const BlogPost = () => {
       {/* Navigation to other posts */}
       <div style={{ marginTop: '20px' }}>
         <h4>Other Posts:</h4>
-        {Object.keys(posts).map(id => (
-          id !== postId && (
-            <Link key={id} to={`/blog/${id}`} style={{ display: 'block', margin: '5px 0' }}>
-              {posts[id].title}
+        {Object.keys(posts).map(postId => (
+          postId !== id && (
+            <Link key={postId} to={`/blog/${postId}`} style={{ display: 'block', margin: '5px 0' }}>
+              {posts[postId].title}
             </Link>
           )
         ))}
